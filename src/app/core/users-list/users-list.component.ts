@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {UserService} from "../../services/user.service";
+import {User} from "../../interfaces/user";
 
 @Component({
   selector: 'app-users-list',
@@ -8,15 +10,15 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UsersListComponent implements OnInit{
 
-  constructor(private http:HttpClient) {
-  }
+  constructor(private userService:UserService) {}
+
+  users:User[]=[]
 
   ngOnInit()  {
-    this.getBooks()
+    this.userService.users.subscribe(data=>{
+      this.users = data
+    })
   }
 
-  getBooks(){
-    this.http.get('api/users').subscribe(data=>console.log(data))
-  }
 
 }
