@@ -9,6 +9,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { UsersListComponent } from './core/users-list/users-list.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { MariosCardComponent } from './shared/marios-card/marios-card.component';
+import { MariosListComponent } from './shared/marios-list/marios-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     HomeComponent,
     HeaderComponent,
     UsersListComponent,
-    LoaderComponent
+    LoaderComponent,
+    MariosCardComponent,
+    MariosListComponent
   ],
   imports: [
     BrowserModule,
