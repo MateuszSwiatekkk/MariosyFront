@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "../interfaces/user";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,9 @@ export class UserService {
         this.usersData = data;
         this.users$.next(data)
       })
+  }
+
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(`${this.userUrl}/${id}`);
   }
 }
