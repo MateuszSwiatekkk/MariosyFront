@@ -1,4 +1,5 @@
 export interface User {
+  userid:number,
   createdMarios:string[],
   email:string,
   externalKeyUser:string,

@@ -15,6 +15,7 @@ export class MariosListComponent implements OnInit{
   ngOnInit(): void {
     this.mariosService.getMarios().subscribe(marioses => {
       this.marioses = marioses;
+      this.marioses = marioses.sort((a, b) => b.mariosId - a.mariosId);
     });
   }
 }

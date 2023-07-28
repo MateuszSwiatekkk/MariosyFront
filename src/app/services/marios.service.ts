@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { map, mergeMap, Observable, toArray} from "rxjs";
+import {map, mergeMap, Observable, tap, toArray} from "rxjs";
 import {Marios} from "../interfaces/marios";
 import {UserService} from "./user.service";
 
@@ -22,6 +22,20 @@ export class MariosService {
           map(user => ({ ...marios, senderData: user })), //add User data
         )),
       toArray()
+    );
+  }
+
+  countReceivedMarios(userId: string): Observable<number> {
+    return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/receivedMarios`).pipe(
+      tap(data => console.log('Received Marios:', data)),
+      map(marios => marios.length)
+    );
+  }
+
+  countSentMarios(userId: string): Observable<number> {
+    return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/createdMarios`).pipe(
+      tap(data => console.log('Sent Marios:', data)),
+      map(marios => marios.length)
     );
   }
 }

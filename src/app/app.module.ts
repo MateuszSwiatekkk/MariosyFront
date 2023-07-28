@@ -11,6 +11,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { MariosCardComponent } from './shared/marios-card/marios-card.component';
 import { MariosListComponent } from './shared/marios-list/marios-list.component';
+import { LoginComponent } from './core/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MariosListComponent } from './shared/marios-list/marios-list.component'
     UsersListComponent,
     LoaderComponent,
     MariosCardComponent,
-    MariosListComponent
+    MariosListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,3 @@
-<p>users-list works!</p>
-<ul>
-  <li *ngFor="let user of users">{{user.name}}</li>
-</ul>
+<select (change)="onUserChange($event)">
+  <option *ngFor="let user of users" [value]="user.externalKeyUser">{{user.name}}</option>
+</select>
