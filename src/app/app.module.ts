@@ -12,6 +12,9 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { MariosCardComponent } from './shared/marios-card/marios-card.component';
 import { MariosListComponent } from './shared/marios-list/marios-list.component';
 import { LoginComponent } from './core/login/login.component';
+import { AddMariosComponent } from './core/add-marios/add-marios.component';
+import { UserRecipientsComponent } from './core/user-recipients/user-recipients.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,15 @@ import { LoginComponent } from './core/login/login.component';
     LoaderComponent,
     MariosCardComponent,
     MariosListComponent,
-    LoginComponent
+    LoginComponent,
+    AddMariosComponent,
+    UserRecipientsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

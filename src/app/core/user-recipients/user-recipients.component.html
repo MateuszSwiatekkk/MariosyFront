@@ -1,0 +1,4 @@
+<p>user-recipients works!</p>
+<select (change)="onRecipientChange($event)">
+  <option *ngFor="let user of users" [value]="user.externalKeyUser">{{user.name}}</option>
+</select>

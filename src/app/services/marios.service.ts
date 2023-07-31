@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, mergeMap, Observable, tap, toArray} from "rxjs";
 import {Marios} from "../interfaces/marios";
 import {UserService} from "./user.service";
+import {mariosPayload} from "../interfaces/mariosPayload";
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,8 @@ export class MariosService {
       tap(data => console.log('Sent Marios:', data)),
       map(marios => marios.length)
     );
+  }
+  addMarios(mariosData: mariosPayload): Observable<any> {
+    return this.http.post(this.apiUrl + '/createMarios', mariosData);
   }
 }

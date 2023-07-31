@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
 import {User} from "../../interfaces/user";
 
@@ -29,6 +28,7 @@ export class UsersListComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement;
     const selectedUserId = selectElement.value;
     localStorage.setItem('selectedUserId', selectedUserId);
-    console.log(localStorage.getItem('selectedUserId'));
+    // console.log(localStorage.getItem('selectedUserId'));
   }
+
 }

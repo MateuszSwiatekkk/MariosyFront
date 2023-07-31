@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MariosService} from "../../services/marios.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit{
   receivedCount: number=0;
   sentCount: number=0;
   selectedUserId: string='';
-  constructor(private mariosService: MariosService) {}
+  constructor(private mariosService: MariosService, private router:Router) {}
 ngOnInit() {
   const storedId = localStorage.getItem('selectedUserId');
   if (storedId) {
@@ -19,6 +20,10 @@ ngOnInit() {
   }
   console.log(this.selectedUserId)
 }
+
+  onAddMariosClick() {
+    this.router.navigate(['/createMarios']);
+  }
 
   private updateCounts(): void {
     this.mariosService.countReceivedMarios(this.selectedUserId).subscribe(receivedCount => {
