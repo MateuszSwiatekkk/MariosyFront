@@ -26,6 +26,29 @@ export class MariosService {
     );
   }
 
+  getSentMarios(userId: string): Observable<Marios[]> {
+    return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/createdMarios`).pipe(
+      mergeMap(marioses => marioses),
+      mergeMap(marios =>
+        this.userService.getUserById(marios.sender).pipe(
+          map(user => ({ ...marios, senderData: user })),
+        )),
+      toArray()
+    );
+  }
+
+  getReceivedMarios(userId: string): Observable<Marios[]> {
+    return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/receivedMarios`).pipe(
+      mergeMap(marioses => marioses),
+      mergeMap(marios =>
+        this.userService.getUserById(marios.sender).pipe(
+          map(sender => ({ ...marios, senderData: sender })),
+        )),
+      toArray()
+    );
+  }
+
+
   countReceivedMarios(userId: string): Observable<number> {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/receivedMarios`).pipe(
       tap(data => console.log('Received Marios:', data)),

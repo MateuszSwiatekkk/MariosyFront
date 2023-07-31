@@ -15,6 +15,8 @@ import { LoginComponent } from './core/login/login.component';
 import { AddMariosComponent } from './core/add-marios/add-marios.component';
 import { UserRecipientsComponent } from './core/user-recipients/user-recipients.component';
 import { FormsModule } from '@angular/forms';
+import { SentMariosComponent } from './core/sent-marios/sent-marios.component';
+import { ReceivedMariosComponent } from './core/received-marios/received-marios.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     MariosListComponent,
     LoginComponent,
     AddMariosComponent,
-    UserRecipientsComponent
+    UserRecipientsComponent,
+    SentMariosComponent,
+    ReceivedMariosComponent
   ],
   imports: [
     BrowserModule,

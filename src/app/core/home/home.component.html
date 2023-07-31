@@ -1,5 +1,6 @@
 <p>home works!</p>
-<button>User has received {{receivedCount}} marios.</button>
-<button>User has sent {{sentCount}} marios.</button>
+<button (click)="onReceivedMariosClick()">User has received {{receivedCount}} marios.</button>
+<button (click)="onSentMariosClick()">Sent Marios:{{sentCount}}</button>
 <button (click)="onAddMariosClick()">Add marios</button>
 <app-marios-list></app-marios-list>
+<app-marios-card *ngFor="let marios of marioses" [marios]="marios"></app-marios-card>

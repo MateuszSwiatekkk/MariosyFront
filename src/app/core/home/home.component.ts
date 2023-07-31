@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MariosService} from "../../services/marios.service";
 import { Router } from '@angular/router';
+import {Marios} from "../../interfaces/marios";
 
 @Component({
   selector: 'app-home',
@@ -11,18 +12,33 @@ export class HomeComponent implements OnInit{
   receivedCount: number=0;
   sentCount: number=0;
   selectedUserId: string='';
+  marioses:Marios[] = [];
+
   constructor(private mariosService: MariosService, private router:Router) {}
 ngOnInit() {
   const storedId = localStorage.getItem('selectedUserId');
+
   if (storedId) {
     this.selectedUserId = storedId;
     this.updateCounts();
   }
-  console.log(this.selectedUserId)
+
+  this.mariosService.getMarios().subscribe(marioses => {
+    this.marioses = marioses;
+    this.marioses = marioses.sort((a, b) => b.mariosId - a.mariosId);
+  });
 }
 
   onAddMariosClick() {
     this.router.navigate(['/createMarios']);
+  }
+
+  onSentMariosClick() {
+    this.router.navigate(['/sentMarios']);
+  }
+
+  onReceivedMariosClick() {
+    this.router.navigate(['/receivedMarios'])
   }
 
   private updateCounts(): void {

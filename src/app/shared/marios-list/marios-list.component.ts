@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Marios} from "../../interfaces/marios";
 import {MariosService} from "../../services/marios.service";
 
 @Component({
@@ -8,14 +7,8 @@ import {MariosService} from "../../services/marios.service";
   styleUrls: ['./marios-list.component.css']
 })
 export class MariosListComponent implements OnInit{
-  marioses:Marios[] = [];
 
   constructor(private mariosService: MariosService) {}
 
-  ngOnInit(): void {
-    this.mariosService.getMarios().subscribe(marioses => {
-      this.marioses = marioses;
-      this.marioses = marioses.sort((a, b) => b.mariosId - a.mariosId);
-    });
-  }
+  ngOnInit(): void {}
 }
