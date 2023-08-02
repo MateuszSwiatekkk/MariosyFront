@@ -1,0 +1,18 @@
+.back-button {
+  background-color: #FFDF24;
+  border-style: solid;
+  border-color: white;
+  border-width: 3px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 700;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.back-div {
+  width: 1090px;
+  margin:0 auto 50px;
+  text-align: left;
+}

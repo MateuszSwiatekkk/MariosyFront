@@ -30,7 +30,7 @@ export class MariosService {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/createdMarios`).pipe(
       mergeMap(marioses => marioses),
       mergeMap(marios =>
-        this.userService.getUserById(marios.sender).pipe(
+        this.userService.getUserById(marios.recipients[0]).pipe(
           map(user => ({ ...marios, senderData: user })),
         )),
       toArray()

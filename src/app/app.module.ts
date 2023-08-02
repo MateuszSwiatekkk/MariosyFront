@@ -17,6 +17,7 @@ import { UserRecipientsComponent } from './core/user-recipients/user-recipients.
 import { FormsModule } from '@angular/forms';
 import { SentMariosComponent } from './core/sent-marios/sent-marios.component';
 import { ReceivedMariosComponent } from './core/received-marios/received-marios.component';
+import { BackButtonComponent } from './shared/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ReceivedMariosComponent } from './core/received-marios/received-marios.
     AddMariosComponent,
     UserRecipientsComponent,
     SentMariosComponent,
-    ReceivedMariosComponent
+    ReceivedMariosComponent,
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
