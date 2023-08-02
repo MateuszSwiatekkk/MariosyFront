@@ -1,7 +1,7 @@
 import {User} from "./user";
 
 export interface mariosPayload {
-  mariosType:string;
+  mariosTypes:string;
   externalKeyUser:string;
   recipients:string;
   message:string;

@@ -1,5 +1,24 @@
-<div class="opinion-card">
-  <p>Sender: {{marios.senderData.name}} {{marios.senderData.surname}}</p>
-  <p>Type: {{marios.mariosType}}</p>
-  <p>{{marios.message}}</p>
+<div class="card">
+  <div class="card-header">
+    <img class="author-icon" src="assets/usericon.png">
+    <span class="author-name">From: {{marios.senderData.name}} {{marios.senderData.surname}}</span>
+  </div>
+  <div class="marios-type">
+    <img [src]="getMariosTypeIcon()" class="opinion-icon">
+    <span class="marios-name">{{marios.mariosType}}</span>
+  </div>
+  <h3 class="card-topic">Topic UwU</h3>
+  <div class="card-content">
+    <p class="card-text">
+      {{
+      marios.message.length > maxCommentLength
+        ? (marios.message | slice : 0 : maxCommentLength) + "..."
+        : marios.message
+      }}
+      <span class="show-more" *ngIf="marios.message.length > maxCommentLength"
+      >See more</span>
+  </div>
+  <div class="read-more-overlay">
+    <span class="read-more-text">READ MORE</span>
+  </div>
 </div>

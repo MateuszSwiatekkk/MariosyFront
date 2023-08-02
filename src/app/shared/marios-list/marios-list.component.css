@@ -1,0 +1,9 @@
+.marios-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  width: 1000px;
+  margin: 0 auto;
+
+}

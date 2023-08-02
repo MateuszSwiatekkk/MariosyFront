@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MariosService} from "../../services/marios.service";
+import {Marios} from "../../interfaces/marios";
 
 @Component({
   selector: 'app-marios-list',
@@ -10,5 +11,6 @@ export class MariosListComponent implements OnInit{
 
   constructor(private mariosService: MariosService) {}
 
+  @Input() marioses!: Marios[];
   ngOnInit(): void {}
 }

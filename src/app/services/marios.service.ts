@@ -51,14 +51,14 @@ export class MariosService {
 
   countReceivedMarios(userId: string): Observable<number> {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/receivedMarios`).pipe(
-      tap(data => console.log('Received Marios:', data)),
+      // tap(data => console.log('Received Marios:', data)),
       map(marios => marios.length)
     );
   }
 
   countSentMarios(userId: string): Observable<number> {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/createdMarios`).pipe(
-      tap(data => console.log('Sent Marios:', data)),
+      // tap(data => console.log('Sent Marios:', data)),
       map(marios => marios.length)
     );
   }

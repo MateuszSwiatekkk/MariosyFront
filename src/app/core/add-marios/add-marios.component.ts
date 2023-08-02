@@ -8,7 +8,7 @@ import {mariosPayload} from "../../interfaces/mariosPayload";
   styleUrls: ['./add-marios.component.css']
 })
 export class AddMariosComponent {
-  mariosType: string = 'Good Job';
+  mariosType: string = 'WOW!';
   message: string = "Just 'cause you rock!"
 
   constructor(private mariosService: MariosService) {
@@ -30,7 +30,7 @@ export class AddMariosComponent {
     }
 
     const mariosData: mariosPayload = {
-      mariosType: this.mariosType,
+      mariosTypes: this.mariosType,
       externalKeyUser: selectedUserId!,
       recipients: recipients!,
       message: this.message

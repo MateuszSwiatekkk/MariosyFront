@@ -25,7 +25,7 @@ export class UserRecipientsComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement;
     const selectedRecipientId = selectElement.value;
     this.recipientIds.push(selectedRecipientId);
-    // console.log(this.recipientIds);
+     // console.log(this.recipientIds);
     localStorage.setItem('recipientIds', JSON.stringify(this.recipientIds));
   }
 
