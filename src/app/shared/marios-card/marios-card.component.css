@@ -10,20 +10,6 @@
   position: relative;
 }
 
-/*.card:hover {*/
-/*  background-color: rgb(54, 52, 52);*/
-/*}*/
-
-/*.card:hover .author-name,*/
-/*.card:hover .marios-name,*/
-/*.card:hover .card-topic,*/
-/*.card:hover .card-text,*/
-/*.card:hover .show-more,*/
-/*.card:hover .author-icon,*/
-/*.card:hover .opinion-icon{*/
-/*  filter:grayscale(50%);*/
-/*}*/
-
 .card-header {
   display: flex;
   align-items: center;

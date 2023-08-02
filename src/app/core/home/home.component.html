@@ -1,7 +1,18 @@
 <div class="buttons">
-  <button (click)="onReceivedMariosClick()" class="button">RECEIVED MARIOS: {{receivedCount}}</button>
-  <button (click)="onSentMariosClick()" class="button">SENT MARIOS:{{sentCount}}</button>
+  <button (click)="onReceivedMariosClick()" class="button">
+    <span class="text">RECEIVED<br> MARIOS:</span>
+    <span class="count">{{receivedCount}}</span>
+  </button>
+  <button (click)="onSentMariosClick()" class="button">
+    <span class="text">SENT<br>MARIOS:</span>
+    <span class="count">{{sentCount}}</span>
+  </button>
 </div>
-<button (click)="onAddMariosClick()">Add marios</button>
+<div class="add-div">
+  <button (click)="onAddMariosClick()" class="add-button">ADD MARIOS &#10132;</button>
+</div>
+<div>
+  <p class="last-text">LAST MARIOS:</p>
+</div>
 <app-marios-list [marioses]="marioses"></app-marios-list>
 <!--<app-marios-card *ngFor="let marios of marioses" [marios]="marios"></app-marios-card>-->
