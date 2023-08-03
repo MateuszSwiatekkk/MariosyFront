@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
+import { MariosChipsComponent } from './core/marios-chips/marios-chips.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
     UserRecipientsComponent,
     SentMariosComponent,
     ReceivedMariosComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    MariosChipsComponent
   ],
   imports: [
     BrowserModule,

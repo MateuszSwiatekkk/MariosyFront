@@ -1,50 +1,25 @@
-<mat-chip [ngClass]="{'selected': mariosType === 'Thank You'}" (click)="onTypeClick('Thank You')">
-  <div class="chip-content">
-    <img src="/assets/thankyou.png">
-    Thank You
+<div class="container">
+  <app-back-button></app-back-button>
+  <div class="forms">
+    <form (ngSubmit)="addMessage()">
+      <div class="recipients">
+        <img src="assets/person.png">
+        <app-user-recipients></app-user-recipients>
+      </div>
+      <div>
+        <p class="header-text-form">Select category:</p>
+        <app-marios-chips [(mariosType)]="mariosType"></app-marios-chips>
+      </div>
+      <div class="title-input-container">
+        <p class="header-text-form">Title:</p>
+        <input type="text" placeholder="Enter marios title" class="title-input">
+      </div>
+      <div>
+        <p class="header-text-form">Comment:</p>
+        <textarea type="text" [(ngModel)]="message" name="message" class="comment-text"></textarea>
+        <br>
+        <button type="submit" class="send-button">SEND</button>
+      </div>
+    </form>
   </div>
-</mat-chip>
-
-<mat-chip [ngClass]="{'selected': mariosType === 'Impressive'}" (click)="onTypeClick('Impressive')">
-  <div class="chip-content">
-    <img src="/assets/impressive.png">
-    Impressive
-  </div>
-</mat-chip>
-
-<mat-chip [ngClass]="{'selected': mariosType === 'Exceptional'}" (click)="onTypeClick('Exceptional')">
-  <div class="chip-content">
-    <img src="/assets/exceptional.png">
-    Exceptional
-  </div>
-</mat-chip>
-
-<mat-chip [ngClass]="{'selected': mariosType === 'Good Job!'}" (click)="onTypeClick('Good Job!')">
-  <div class="chip-content">
-    <img src="/assets/goodjob.png">
-    Good Job!
-  </div>
-</mat-chip>
-
-<mat-chip [ngClass]="{'selected': mariosType === 'WOW!'}" (click)="onTypeClick('WOW!')">
-  <div class="chip-content">
-    <img src="/assets/wow.png">
-    WOW!
-  </div>
-</mat-chip>
-
-<mat-chip [ngClass]="{'selected': mariosType === 'I\'m Proud'}" (click)="onTypeClick('I\'m Proud')">
-  <div class="chip-content">
-    <img src="/assets/improud.png">
-    I'm Proud
-  </div>
-</mat-chip>
-
-
-
-
-<input type="text" [(ngModel)]="message" placeholder="Add to message">
-<button (click)="addMessage()">Add Message</button>
-
-
-<app-user-recipients></app-user-recipients>
+</div>

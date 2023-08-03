@@ -15,10 +15,10 @@ export class AddMariosComponent {
   constructor(private mariosService: MariosService,private router:Router) {
   }
 
-  onTypeClick(message: string) {
-    this.mariosType = message;
-    // console.log(this.mariosType);
-  }
+  // onTypeClick(message: string) {
+  //   this.mariosType = message;
+  //   // console.log(this.mariosType);
+  // }
 
   addMessage() {
     this.message = `${this.message}`;

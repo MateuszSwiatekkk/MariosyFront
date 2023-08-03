@@ -4,9 +4,8 @@
 <!--</select>-->
 <div>
   <mat-form-field>
-    <mat-label>Recipients</mat-label>
+    <mat-label style="color: gray"><strong>Who do you want to recognize?</strong></mat-label>
     <mat-select [formControl]="recipientsControl" multiple>
-
       <mat-select-trigger>
         <mat-chip-list>
           <mat-chip *ngFor="let user of recipientsControl.value"
@@ -16,7 +15,6 @@
           </mat-chip>
         </mat-chip-list>
       </mat-select-trigger>
-
       <mat-option *ngFor="let user of users" [value]="user">{{user.name}}</mat-option>
     </mat-select>
   </mat-form-field>
