@@ -31,7 +31,7 @@ export class MariosService {
       mergeMap(marioses => marioses),
       mergeMap(marios =>
         this.userService.getUserById(marios.recipients[0]).pipe(
-          map(user => ({ ...marios, senderData: user })),
+          map(user => ({ ...marios, senderData: user })), //recipients
         )),
       toArray()
     );

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MariosService} from "../../services/marios.service";
 import {mariosPayload} from "../../interfaces/mariosPayload";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-marios',
@@ -11,7 +12,7 @@ export class AddMariosComponent {
   mariosType: string = 'WOW!';
   message: string = "Just 'cause you rock!"
 
-  constructor(private mariosService: MariosService) {
+  constructor(private mariosService: MariosService,private router:Router) {
   }
 
   onTypeClick(message: string) {
@@ -42,6 +43,7 @@ export class AddMariosComponent {
       },
       error => console.error(error)
     );
+    this.router.navigate(['/home']);
   }
 }
 

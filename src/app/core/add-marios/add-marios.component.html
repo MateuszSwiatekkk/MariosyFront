@@ -1,10 +1,50 @@
-<p>add-marios works!</p>
-<app-user-recipients></app-user-recipients>
-<button (click)="onTypeClick('Thank You')">Thank You</button>
-<button (click)="onTypeClick('Impressive')">Impressive</button>
-<button (click)="onTypeClick('Exceptional')">Exceptional</button>
-<button (click)="onTypeClick('Good job!')">Good Job</button>
-<button (click)="onTypeClick('WOW!')">WOW!</button>
-<button (click)="onTypeClick('I\'m Proud')">I'm Proud</button>
+<mat-chip [ngClass]="{'selected': mariosType === 'Thank You'}" (click)="onTypeClick('Thank You')">
+  <div class="chip-content">
+    <img src="/assets/thankyou.png">
+    Thank You
+  </div>
+</mat-chip>
+
+<mat-chip [ngClass]="{'selected': mariosType === 'Impressive'}" (click)="onTypeClick('Impressive')">
+  <div class="chip-content">
+    <img src="/assets/impressive.png">
+    Impressive
+  </div>
+</mat-chip>
+
+<mat-chip [ngClass]="{'selected': mariosType === 'Exceptional'}" (click)="onTypeClick('Exceptional')">
+  <div class="chip-content">
+    <img src="/assets/exceptional.png">
+    Exceptional
+  </div>
+</mat-chip>
+
+<mat-chip [ngClass]="{'selected': mariosType === 'Good Job!'}" (click)="onTypeClick('Good Job!')">
+  <div class="chip-content">
+    <img src="/assets/goodjob.png">
+    Good Job!
+  </div>
+</mat-chip>
+
+<mat-chip [ngClass]="{'selected': mariosType === 'WOW!'}" (click)="onTypeClick('WOW!')">
+  <div class="chip-content">
+    <img src="/assets/wow.png">
+    WOW!
+  </div>
+</mat-chip>
+
+<mat-chip [ngClass]="{'selected': mariosType === 'I\'m Proud'}" (click)="onTypeClick('I\'m Proud')">
+  <div class="chip-content">
+    <img src="/assets/improud.png">
+    I'm Proud
+  </div>
+</mat-chip>
+
+
+
+
 <input type="text" [(ngModel)]="message" placeholder="Add to message">
 <button (click)="addMessage()">Add Message</button>
+
+
+<app-user-recipients></app-user-recipients>

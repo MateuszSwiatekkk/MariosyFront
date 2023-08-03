@@ -1,4 +1,24 @@
-<p>user-recipients works!</p>
-<select (change)="onRecipientChange($event)">
-  <option *ngFor="let user of users" [value]="user.externalKeyUser">{{user.name}}</option>
-</select>
+<!--<p>user-recipients works!</p>-->
+<!--<select (change)="onRecipientChange($event)">-->
+<!--  <option *ngFor="let user of users" [value]="user.externalKeyUser">{{user.name}}</option>-->
+<!--</select>-->
+<div>
+  <mat-form-field>
+    <mat-label>Recipients</mat-label>
+    <mat-select [formControl]="recipientsControl" multiple>
+
+      <mat-select-trigger>
+        <mat-chip-list>
+          <mat-chip *ngFor="let user of recipientsControl.value"
+                    [removable]="true" (removed)="onRecipientRemoved(user)">
+            {{ user.name }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </mat-select-trigger>
+
+      <mat-option *ngFor="let user of users" [value]="user">{{user.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+

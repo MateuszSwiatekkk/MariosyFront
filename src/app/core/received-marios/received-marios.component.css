@@ -2,9 +2,9 @@
   font-family: "Open Sans";
   width: 1100px;
   text-align: left;
-  margin: auto;
   color: white;
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 3px;
+  margin: auto auto 10px;
 }

@@ -14,10 +14,15 @@ import { MariosListComponent } from './shared/marios-list/marios-list.component'
 import { LoginComponent } from './core/login/login.component';
 import { AddMariosComponent } from './core/add-marios/add-marios.component';
 import { UserRecipientsComponent } from './core/user-recipients/user-recipients.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SentMariosComponent } from './core/sent-marios/sent-marios.component';
 import { ReceivedMariosComponent } from './core/received-marios/received-marios.component';
 import { BackButtonComponent } from './shared/back-button/back-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 
 @NgModule({
   declarations: [
@@ -39,7 +44,13 @@ import { BackButtonComponent } from './shared/back-button/back-button.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatChipsModule,
+    MatSelectModule,
+    MatLegacyChipsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
