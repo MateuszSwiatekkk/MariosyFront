@@ -1,3 +1,4 @@
+
 .button {
   position: relative;
   height: 268px;
@@ -29,7 +30,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/assets/statsbackground.png') no-repeat right 20px center;
+  background: url('/assets/statsbackground.png') no-repeat right 21px center;
   z-index: 1;
   background-size: 40%;
 }
@@ -65,6 +66,7 @@
   font-weight: 700;
   font-size: 23px;
   cursor: pointer;
+  padding-bottom: 3px;
 }
 
 .add-div{
@@ -87,3 +89,8 @@
   letter-spacing: 3px;
   margin: auto auto 10px;
 }
+
+.container{
+  padding-bottom: 50px;
+}
+

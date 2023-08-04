@@ -1,5 +1,6 @@
 .back-button {
   background-color: #FFDF24;
+  justify-content: center;
   border-style: solid;
   border-color: white;
   border-width: 3px;
@@ -9,6 +10,7 @@
   font-weight: 700;
   font-size: 23px;
   cursor: pointer;
+  padding-bottom: 3px;
 }
 
 .back-div {

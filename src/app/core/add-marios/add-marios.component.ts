@@ -11,13 +11,14 @@ import {Router} from "@angular/router";
 export class AddMariosComponent {
   mariosType: string = 'WOW!';
   message: string = "Just 'cause you rock!"
+  title:string ="Marios 4 U"
 
   constructor(private mariosService: MariosService,private router:Router) {
   }
 
   addMessage() {
     this.message = `${this.message}`;
-
+    this.title = `${this.title}`;
     const selectedUserId = localStorage.getItem('selectedUserId');
     let recipients = localStorage.getItem('recipientIds');
 
@@ -29,6 +30,7 @@ export class AddMariosComponent {
       mariosTypes: this.mariosType,
       externalKeyUser: selectedUserId!,
       recipients: recipients!,
+      title:this.title,
       message: this.message
     };
 
