@@ -10,6 +10,8 @@ img {
   gap: 10px;
   font-weight: 700;
   font-size: 14px;
+  cursor: pointer;
+  width: 100%;
 }
 
 .mat-chip {
@@ -18,12 +20,16 @@ img {
   border-color: lightgray !important;
   border-width: 2px;
   border-style: solid;
-  margin-right: 5px;
+  margin-right: 0px;
   padding-right:0;
   padding-left: 0;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
+
 .mat-chip.selected {
-  background-color: green;
+  background-color: lightgray !important;
   color: white;
 }
+

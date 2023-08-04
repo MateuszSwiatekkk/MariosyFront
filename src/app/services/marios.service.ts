@@ -65,4 +65,31 @@ export class MariosService {
   addMarios(mariosData: mariosPayload): Observable<any> {
     return this.http.post(this.apiUrl + '/createMarios', mariosData);
   }
+
+  getMariosTypeIcon(mariosType:string) {
+    let iconPath = '';
+
+    switch (mariosType) {
+      case 'Good job!':
+        iconPath = 'assets/goodjob.png';
+        break;
+      case 'Exceptional':
+        iconPath = 'assets/exceptional.png';
+        break;
+      case 'Impressive':
+        iconPath = 'assets/impressive.png';
+        break;
+      case 'Thank You':
+        iconPath = 'assets/thankyou.png';
+        break;
+      case 'WOW!':
+        iconPath = 'assets/wow.png';
+        break;
+      case 'I\'m Proud':
+        iconPath = 'assets/improud.png';
+        break;
+    }
+    return iconPath;
+  }
+
 }

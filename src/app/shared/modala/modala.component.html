@@ -1,0 +1,20 @@
+<div class="btn-container">
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="person-and-type">
+  <div class="person">
+    {{displayText}}
+  </div>
+  <div class="type">
+    <img [src]="getMariosTypeIcon()">
+    {{data.marios.mariosType}}
+  </div>
+</div>
+<div class="topic">
+  Topic UwU
+</div>
+<div class="message">
+  {{data.marios.message}}
+</div>

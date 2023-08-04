@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit{
 
   constructor(private mariosService: MariosService, private router:Router) {}
 ngOnInit() {
+  if(performance.navigation.type == 2){
+    location.reload();
+  }
+
   const storedId = localStorage.getItem('selectedUserId');
 
   if (storedId) {

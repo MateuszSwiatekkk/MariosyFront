@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Marios} from "../../interfaces/marios";
 import { Router } from '@angular/router';
+import {MariosService} from "../../services/marios.service";
 @Component({
   selector: 'app-marios-card',
   templateUrl: './marios-card.component.html',
@@ -11,33 +12,7 @@ export class MariosCardComponent implements OnInit {
   maxCommentLength: number = 70;
   public displayText: string='';
 
-  constructor(private router: Router) {
-  }
-
-  getMariosTypeIcon(): string {
-    let iconPath = '';
-
-    switch (this.marios.mariosType) {
-      case 'Good job!':
-        iconPath = 'assets/goodjob.png';
-        break;
-      case 'Exceptional':
-        iconPath = 'assets/exceptional.png';
-        break;
-      case 'Impressive':
-        iconPath = 'assets/impressive.png';
-        break;
-      case 'Thank You':
-        iconPath = 'assets/thankyou.png';
-        break;
-      case 'WOW!':
-        iconPath = 'assets/wow.png';
-        break;
-      case 'I\'m Proud':
-        iconPath = 'assets/improud.png';
-        break;
-    }
-    return iconPath;
+  constructor(private router: Router,private mariosService:MariosService) {
   }
 
   ngOnInit(): void {
@@ -46,5 +21,9 @@ export class MariosCardComponent implements OnInit {
     } else {
       this.displayText = "From: " + this.marios.senderData.name + " " + this.marios.senderData.surname;
     }
+  }
+
+  getMariosTypeIcon(): string {
+    return this.mariosService.getMariosTypeIcon(this.marios.mariosType);
   }
 }

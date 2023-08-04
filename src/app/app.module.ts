@@ -24,6 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 import { MariosChipsComponent } from './core/marios-chips/marios-chips.component';
+import { ModalaComponent } from './shared/modala/modala.component';
+import { MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { MariosChipsComponent } from './core/marios-chips/marios-chips.component
     SentMariosComponent,
     ReceivedMariosComponent,
     BackButtonComponent,
-    MariosChipsComponent
+    MariosChipsComponent,
+    ModalaComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { MariosChipsComponent } from './core/marios-chips/marios-chips.component
     MatIconModule,
     MatChipsModule,
     MatSelectModule,
-    MatLegacyChipsModule
+    MatLegacyChipsModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

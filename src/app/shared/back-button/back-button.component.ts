@@ -11,7 +11,6 @@ export class BackButtonComponent {
   }
   goBack() {
     this.location.back();
-    location.reload()
   }
 
 }

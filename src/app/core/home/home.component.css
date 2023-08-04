@@ -29,9 +29,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: 40%;
   background: url('/assets/statsbackground.png') no-repeat right 20px center;
   z-index: 1;
+  background-size: 40%;
 }
 
 .count {
