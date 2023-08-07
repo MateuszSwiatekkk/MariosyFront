@@ -83,6 +83,7 @@ form div:last-child {
   padding: 3px 0 0 3px;
   margin-left: 10px;
   margin-right: 10px;
+  font-family: "Open Sans";
 }
 
 .send-button {

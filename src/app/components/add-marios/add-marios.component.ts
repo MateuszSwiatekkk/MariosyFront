@@ -40,7 +40,7 @@ export class AddMariosComponent {
       },
       error => console.error(error)
     );
-    this.router.navigate(['/home']);
+    window.location.reload()
   }
 }
 

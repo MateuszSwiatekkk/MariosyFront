@@ -16,7 +16,7 @@ export class LoaderInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loaderService.show()
     return next.handle(request).pipe(
-       delayWhen(() => timer(200)), //delaying the request, just to make the ploader visible
+       delayWhen(() => timer(400)), //delaying the request, just to make the ploader visible
       finalize(() => {
         this.loaderService.hide();
       })
