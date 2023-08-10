@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {User} from "../../interfaces/user";
-import {FormControl} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-user-recipients',
@@ -11,6 +11,8 @@ import {FormControl} from "@angular/forms";
 export class UserRecipientsComponent implements OnInit {
   users: User[] = [];
   recipientIds: string[] = [];
+  error: boolean = false;
+  @Output() recipientsError = new EventEmitter<boolean>();
 
   constructor(private userService: UserService) {
   }
@@ -26,25 +28,23 @@ export class UserRecipientsComponent implements OnInit {
         this.recipientIds = recipients.map(user => user.externalKeyUser);
         localStorage.setItem('recipientIds', JSON.stringify(this.recipientIds));
       }
+      this.checkRecipientsError();
     });
   }
 
-  recipientsControl = new FormControl<User[]>([]);
+  recipientsControl = new FormControl<User[]>([], Validators.required);
 
-  // onRecipientChange(event: Event) {
-  //   const selectElement = event.target as HTMLSelectElement;
-  //   const selectedRecipientId = selectElement.value;
-  //   this.recipientIds.push(selectedRecipientId);
-  //    // console.log(this.recipientIds);
-  //   localStorage.setItem('recipientIds', JSON.stringify(this.recipientIds));
-  // }
-
+  checkRecipientsError() {
+    const error = !this.recipientIds.length;
+    this.error = error;
+    this.recipientsError.emit(error);
+  }
 
   onRecipientRemoved(user: User) {
     const recipients = this.recipientsControl.value;
-    if (recipients) { // Check for null here
+    if (recipients) {
       this.removeFirst(recipients, user);
-      this.recipientsControl.setValue(recipients); // To trigger change detection
+      this.recipientsControl.setValue(recipients);
     }
   }
 

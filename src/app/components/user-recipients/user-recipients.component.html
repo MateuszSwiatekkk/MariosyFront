@@ -1,9 +1,5 @@
-<!--<p>user-recipients works!</p>-->
-<!--<select (change)="onRecipientChange($event)">-->
-<!--  <option *ngFor="let user of users" [value]="user.externalKeyUser">{{user.name}}</option>-->
-<!--</select>-->
 <div>
-  <mat-form-field>
+  <mat-form-field [ngStyle]="{'padding-bottom': (recipientsControl.hasError('required')) && recipientsControl.touched ? '14px' : '0'}">
     <mat-label style="color: gray"><strong>Who do you want to recognize?</strong></mat-label>
     <mat-select [formControl]="recipientsControl" multiple>
       <mat-select-trigger>
@@ -17,6 +13,9 @@
       </mat-select-trigger>
       <mat-option *ngFor="let user of users" [value]="user">{{user.name}}</mat-option>
     </mat-select>
+    <mat-error *ngIf="recipientsControl.hasError('required')">
+      Recipient is required
+    </mat-error>
   </mat-form-field>
 </div>
 

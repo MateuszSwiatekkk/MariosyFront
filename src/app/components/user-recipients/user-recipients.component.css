@@ -10,4 +10,3 @@ mat-form-field {
 ::ng-deep div.mdc-text-field--filled:not(.mdc-text-field--disabled){
   background-color: white;
 }
-

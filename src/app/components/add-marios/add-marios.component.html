@@ -1,22 +1,29 @@
 <div class="container">
   <app-back-button></app-back-button>
   <div class="forms">
-    <form (ngSubmit)="addMessage()">
+    <form [formGroup]="form" (ngSubmit)="addMessage()">
       <div class="recipients">
         <img src="assets/person.png">
-        <app-user-recipients></app-user-recipients>
+        <app-user-recipients (recipientsError)="onRecipientsError($event)"></app-user-recipients>
       </div>
       <div>
         <p class="header-text-form">Select category:</p>
-        <app-marios-chips [(mariosType)]="mariosType"></app-marios-chips>
+        <app-marios-chips [mariosType]="form.get('mariosType')?.value"
+                          (mariosTypeChange)="form.get('mariosType')?.setValue($event)"></app-marios-chips>
       </div>
       <div>
         <p class="header-text-form">Title:</p>
-        <input type="text" placeholder="Enter marios title" [(ngModel)]="title" name="title" class="title-input">
+        <input type="text" formControlName="title" class="title-input">
+        <mat-error *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched" class="error-msg">
+          {{errorMessages.title}}
+        </mat-error>
       </div>
       <div>
         <p class="header-text-form">Comment:</p>
-        <textarea type="text" [(ngModel)]="message" name="message" class="comment-text"></textarea>
+        <textarea formControlName="message" class="comment-text"></textarea>
+        <mat-error *ngIf="form.get('message')?.hasError('required')" class="error-msg">
+          {{errorMessages.message}}
+        </mat-error>
         <br>
         <button type="submit" class="send-button">SEND</button>
       </div>

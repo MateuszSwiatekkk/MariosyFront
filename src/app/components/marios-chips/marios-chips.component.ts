@@ -12,6 +12,7 @@ export class MariosChipsComponent {
 
   onTypeClick(type: string) {
     this.mariosType = type;
+    console.log(type);
     this.mariosTypeChange.emit(this.mariosType);
   }
 
