@@ -11,7 +11,7 @@ import {FormControl, Validators} from "@angular/forms";
 export class UserRecipientsComponent implements OnInit {
   users: User[] = [];
   recipientIds: string[] = [];
-  error: boolean = false;
+  error: boolean = true;
   @Output() recipientsError = new EventEmitter<boolean>();
 
   constructor(private userService: UserService) {

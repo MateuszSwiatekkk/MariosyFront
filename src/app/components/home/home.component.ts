@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MariosService} from "../../services/marios.service";
 import { Router } from '@angular/router';
 import {Marios} from "../../interfaces/marios";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-home',
@@ -11,27 +12,27 @@ import {Marios} from "../../interfaces/marios";
 export class HomeComponent implements OnInit{
   receivedCount: number=0;
   sentCount: number=0;
-  selectedUserId: string='';
+  selectedUserId: string = '';
   marioses:Marios[] = [];
 
-  constructor(private mariosService: MariosService, private router:Router) {}
-ngOnInit() {
-  // if(performance.navigation.type == 2){
-  //   location.reload();
-  // }
+  constructor(
+    private mariosService: MariosService,
+    private router: Router,
+    private keycloak: KeycloakService
+  ) {}
+  ngOnInit() {
+    this.keycloak.loadUserProfile().then(userProfile => {
+      this.selectedUserId = userProfile.id  ??  'default';
+      localStorage.setItem('selectedUserId',this.selectedUserId);
 
-  const storedId = localStorage.getItem('selectedUserId');
+      this.updateCounts();
 
-  if (storedId) {
-    this.selectedUserId = storedId;
-    this.updateCounts();
+      this.mariosService.getMarios().subscribe(marioses => {
+        this.marioses = marioses;
+        this.marioses.sort((a, b) => b.mariosId - a.mariosId);
+      });
+    })
   }
-
-  this.mariosService.getMarios().subscribe(marioses => {
-    this.marioses = marioses;
-    this.marioses = marioses.sort((a, b) => b.mariosId - a.mariosId);
-  });
-}
 
   onAddMariosClick() {
     this.router.navigate(['/createMarios']);

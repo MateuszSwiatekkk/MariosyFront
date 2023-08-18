@@ -13,7 +13,9 @@ const routes: Routes = [
   { path:'login', component: LoginComponent },
   { path:'createMarios', component: AddMariosComponent },
   { path:'sentMarios', component: SentMariosComponent },
-  { path:'receivedMarios', component: ReceivedMariosComponent }
+  { path:'receivedMarios', component: ReceivedMariosComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({

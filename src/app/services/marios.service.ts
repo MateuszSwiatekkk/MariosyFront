@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map, mergeMap, Observable, tap, toArray} from "rxjs";
 import {Marios} from "../interfaces/marios";
 import {UserService} from "./user.service";
 import {mariosPayload} from "../interfaces/mariosPayload";
+import { KeycloakService } from 'keycloak-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +13,16 @@ export class MariosService {
   private apiUrl = '/api/marios';
   constructor(
     private http: HttpClient,
-    private userService: UserService
+    private userService: UserService,
+    private keycloak: KeycloakService
   ) {}
 
   getMarios(): Observable<Marios[]> {
-    return this.http.get<Marios[]>(this.apiUrl).pipe(
-      mergeMap(marioses => marioses), //flatten Marios array
+    return this.http.get<Marios[]>(this.apiUrl, { headers: this.setHeadersWithToken() }).pipe(
+      mergeMap(marioses => marioses),
       mergeMap(marios =>
-        this.userService.getUserById(marios.sender).pipe(  //for every marios
-          map(user => ({ ...marios, senderData: user })), //add User data
+        this.userService.getUserById(marios.sender).pipe(
+          map(user => ({ ...marios, senderData: user })),
         )),
       toArray()
     );
@@ -51,14 +53,12 @@ export class MariosService {
 
   countReceivedMarios(userId: string): Observable<number> {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/receivedMarios`).pipe(
-      // tap(data => console.log('Received Marios:', data)),
       map(marios => marios.length)
     );
   }
 
   countSentMarios(userId: string): Observable<number> {
     return this.http.get<Marios[]>(`${this.apiUrl}/${userId}/createdMarios`).pipe(
-      // tap(data => console.log('Sent Marios:', data)),
       map(marios => marios.length)
     );
   }
@@ -90,6 +90,10 @@ export class MariosService {
         break;
     }
     return iconPath;
+  }
+
+  private setHeadersWithToken(): HttpHeaders {
+    return new HttpHeaders().set('Authorization', 'Bearer ' + this.keycloak.getKeycloakInstance().token);
   }
 
 }
